@@ -1,0 +1,188 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+<mat-card>
+  <mat-card-content>
+    <div class="row">
+
+      <div class="col-md-10">
+
+        <mat-card-title>Find the loan that's right for you </mat-card-title>
+        <br>
+        <mat-card-subtitle>Check out what Fincro has to offer:</mat-card-subtitle>
+
+      </div>
+      <div class="col-md-2">
+        <button mat-fab="mat-fab" [routerLink]="['/addmicrocredit']">
+          <mat-icon aria-label="Example icon-button with a add_circle_outline icon" >add_circle_outline</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<div class="container mt-5 mb-3">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card p-3 mb-2">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-row align-items-center">
+            <div class="icon">
+              <i class="bx bxl-mailchimp"></i>
+            </div>
+            <div class="ms-2 c-details">
+              <h6 class="mb-0">Personal Loans</h6>
+              <span>Personal Loans Made Easy</span>
+            </div>
+          </div>
+          <div class="badge">
+            <span>Show</span>
+          </div>
+        </div>
+        <div class="mt-4">
+          <span>Say goodbye to high-stress debt and consolidate into one low</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card p-3 mb-2">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-row align-items-center">
+            <div class="icon">
+              <i class="bx bxl-mailchimp"></i>
+            </div>
+            <div class="ms-2 c-details">
+              <h6 class="mb-0">Home Loan</h6>
+              <span>Buy Your Dream Home</span>
+            </div>
+          </div>
+          <div class="badge">
+            <span>Show</span>
+          </div>
+        </div>
+        <div class="mt-4">
+          <span>Make your dream home a reality
+
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="container mt-5 mb-3">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card p-3 mb-2">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-row align-items-center">
+            <div class="icon">
+              <i class="bx bxl-mailchimp"></i>
+            </div>
+            <div class="ms-2 c-details">
+              <h6 class="mb-0">Medical Loans</h6>
+              <span>Your Health First</span>
+            </div>
+          </div>
+          <div class="badge">
+            <span>Show</span>
+          </div>
+        </div>
+        <div class="mt-4">
+          <span>Get the health treatments you need today, for you and your family</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card p-3 mb-2">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-row align-items-center">
+            <div class="icon">
+              <i class="bx bxl-mailchimp"></i>
+            </div>
+            <div class="ms-2 c-details">
+              <h6 class="mb-0">Private Student Loans</h6>
+              <span>Succeed in Life</span>
+            </div>
+          </div>
+          <div class="badge">
+            <span>Show</span>
+          </div>
+        </div>
+        <div class="mt-4">
+          <span>Here to help you pay for school</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="container mt-5 mb-3">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card p-3 mb-2">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-row align-items-center">
+            <div class="icon">
+              <i class="bx bxl-mailchimp"></i>
+            </div>
+            <div class="ms-2 c-details">
+              <h6 class="mb-0">Agricultural Loans</h6>
+              <span>Agricultural Loans Made Easy</span>
+            </div>
+          </div>
+          <div class="badge">
+            <span>Show</span>
+          </div>
+        </div>
+        <div class="mt-4">
+          <span>Funding and support for agricultural micro-projects</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card p-3 mb-2">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-row align-items-center">
+            <div class="icon">
+              <i class="bx bxl-mailchimp"></i>
+            </div>
+            <div class="ms-2 c-details">
+              <h6 class="mb-0">Young Entrepreneurs Loan</h6>
+              <span>Build Your Future</span>
+            </div>
+          </div>
+          <div class="badge">
+            <span>Show</span>
+          </div>
+        </div>
+        <div class="mt-4">
+          <span>Funding and support for young entrepreneurs
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<mat-card *ngif="!opened" >
+    <mat-card-content>
+      <div class="row">
+  
+        <div class="col-md-10">
+  
+          <mat-card-title>Find the loan that's right for you</mat-card-title>
+          <br>
+          <mat-card-subtitle>Check out what Fincro has to offer:</mat-card-subtitle>
+  
+        </div>
+        <div class="col-md-2">
+          <button mat-fab="mat-fab" (click)="showLoans()">
+            <mat-icon aria-label="Example icon-button with a add_circle_outline icon">add_circle_outline</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>

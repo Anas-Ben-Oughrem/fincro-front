@@ -1,0 +1,23 @@
+<div mat-dialog-content>
+  <p>What's your new Periodicity?</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Amount To Pay</mat-label>
+    <input matInput [(ngModel)]="amount">
+  </mat-form-field>
+</div>
+<div >
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="showPeriod()" cdkFocusInitial>Ok</button>
+</div>
+<br>
+<span *ngIf="period>0">
+  <div  mat-dialog-content>
+    <p>What we propose as a new period</p>
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="period" disabled >
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="Accept()" cdkFocusInitial>Accept</button>
+  </div>
+</span>

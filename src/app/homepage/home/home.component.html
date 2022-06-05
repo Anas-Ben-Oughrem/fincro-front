@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" rel="script">
+
+
+  </head>
+
+  <body>
+
+    
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+    <div class="sub-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-xs-12">
+            <ul class="left-info">
+              <li><a href="#"><i class="fa fa-clock-o"></i>Mon-Fri 09:00-17:00</a></li>
+              <li><a href="#"><i class="fa fa-phone"></i>+216 26870636</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="right-icons">
+              <li><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><h2>Fincro Agency</h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                
+              </li>
+              <li class="nav-item">
+               
+              </li>
+              <li class="nav-item">
+                <button><a class="nav-link current" (click)="stateZero()">Home
+                  <span class="sr-only">(current)</span>
+                </a></button>
+              </li>              
+              <li class="nav-item">
+                <button><a class="nav-link" (click)="stateTwo()">Sign up</a> </button>
+              </li>
+              <li class="nav-item">
+                <button><a class="nav-link external" (click)="stateOne()" >Sign in</a> </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
+    <div class="limiter" *ngIf="state==1">
+      <div class="container-login100">
+        <div class="wrap-login100">
+          <div class="login100-form-title" style="background-image: url('../../../assets/images/home/bg-01.jpg');">
+            <span class="login100-form-title-1">
+              Sign In
+            </span>
+          </div>
+  
+          <form class="login100-form validate-form" name="signinForm" #signinForm="ngForm" (ngSubmit)="onSubmit(signinForm)">
+            <div class="wrap-input100 validate-input m-b-26" >
+              <span class="label-input100">Email</span>
+              <input class="input100" type="text" name="email" ngModel required #email="ngModel" placeholder="Enter email">
+              <span class="focus-input100"> </span>
+              
+            </div>
+            <div *ngIf="formVerif"> <h6  style="color:red"  *ngIf="email.errors.required">please enter your email</h6>  </div>
+  
+            <div class="wrap-input100 validate-input m-b-18" >
+              <span class="label-input100">Password</span>
+              <input class="input100" type="password" name="pass" ngModel required #pass="ngModel" placeholder="Enter password">
+              <span class="focus-input100"></span>
+            </div>
+            <div *ngIf="formVerif"> <h10  style="color:red" *ngIf="pass.errors.required">please enter your password</h10>  </div>
+  
+            <div class="container-login100-form-btn">
+              <button class="login100-form-btn">
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="limiter" *ngIf="state==2">
+      <div class="container-login100">
+        <div class="wrap-login100">
+          <div class="login100-form-title" style="background-image: url('../../../assets/images/home/bg-01.jpg');">
+            <span class="login100-form-title-1">
+              Sign Up
+            </span>
+          </div>
+  
+          <form class="login100-form validate-form" name="signupForm" #signupForm="ngForm" (ngSubmit)="onSubmitsu(signupForm)">
+            <div class="wrap-input100 validate-input m-b-26" >
+              <span class="label-input100">First Name</span>
+              <input class="input100" type="text" name="fname" ngModel required #fname="ngModel" placeholder="Enter your first name">
+              <span class="focus-input100"> </span>
+              
+            </div>
+            <div *ngIf="regVerif"> <h6  style="color:red"  *ngIf="mail.errors.required">please enter your first name</h6>  </div>
+  
+            <div class="wrap-input100 validate-input m-b-18" >
+              <span class="label-input100">Last Name</span>
+              <input class="input100" type="text" name="lname" ngModel required #lname="ngModel" placeholder="Enter your last name">
+              <span class="focus-input100"></span>
+            </div>
+            <div *ngIf="regVerif"> <h10  style="color:red" *ngIf="lname.errors.required">please enter your last name</h10>  </div>
+
+            <div class="wrap-input100 validate-input m-b-26" >
+              <span class="label-input100">Email</span>
+              <input class="input100" type="text" name="mail" ngModel required #mail="ngModel" placeholder="Enter email">
+              <span class="focus-input100"> </span>
+              
+            </div>
+            <div *ngIf="regVerif"> <h6  style="color:red"  *ngIf="mail.errors.required">please enter your email</h6>  </div>
+  
+            <div class="wrap-input100 validate-input m-b-18" >
+              <span class="label-input100">CIN N</span>
+              <input class="input100" type="text" name="cin" ngModel required #cin="ngModel" placeholder="Enter cin number">
+              <span class="focus-input100"></span>
+            </div>
+            <div *ngIf="regVerif"> <h10  style="color:red" *ngIf="cin.errors.required">please enter your cin number</h10>  </div>
+
+            <div class="wrap-input100 validate-input m-b-26" >
+              <span class="label-input100">Phone Number</span>
+              <input class="input100" type="text" name="pnumber" ngModel required #pnumber="ngModel" placeholder="Enter your phone number">
+              <span class="focus-input100"> </span>
+              
+            </div>
+            <div *ngIf="regVerif"> <h6  style="color:red"  *ngIf="pnumber.errors.required">please enter your phone number</h6>  </div>
+  
+            <div class="wrap-input100 validate-input m-b-18" >
+              <span class="label-input100">Gender</span>
+              <input class="input100" type="text" name="gender" ngModel required #gender="ngModel" placeholder="Enter your gender">
+              <span class="focus-input100"></span>
+            </div>
+            <div *ngIf="regVerif"> <h10  style="color:red" *ngIf="gender.errors.required">please enter your gender</h10>  </div>
+
+            <div class="wrap-input100 validate-input m-b-26" >
+              <span class="label-input100">Profession</span>
+              <input class="input100" type="text" name="profession" ngModel required #profession="ngModel" placeholder="Enter your profession">
+              <span class="focus-input100"> </span>
+              
+            </div>
+            <div *ngIf="regVerif"> <h6  style="color:red"  *ngIf="profession.errors.required">please enter your profession</h6>  </div>
+  
+            <div class="wrap-input100 validate-input m-b-18" >
+              <span class="label-input100">Salary</span>
+              <input class="input100" type="text" name="salary" ngModel required #salary="ngModel" placeholder="Enter your salary">
+              <span class="focus-input100"></span>
+            </div>
+            <div *ngIf="regVerif"> <h10  style="color:red" *ngIf="salary.errors.required">please enter your salary</h10>  </div>
+  
+            <div class="container-login100-form-btn">
+              <button class="login100-form-btn">
+                Register
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="main-banner header-text" id="top" *ngIf="state==0">
+        <div class="Modern-Slider" >
+          <!-- Item -->
+          <div class="item item-1">
+            <div class="img-fill">
+                <div class="text-content">
+                  <h6>we are ready to help you</h6>
+                  <h4>Financial Analysis<br>&amp; Consulting</h4>
+                  <p>Fincro Agency provides assistance in different financial domains. Our crew is highly qualified and ready to guide you throw all your choices.</p>
+                  <button><a (click)="stateTwo()" class="filled-button">Sign up</a></button>
+                </div>
+            </div>
+          </div>
+          <!-- // Item -->
+          <!-- Item -->
+          <div class="item item-2">
+            <div class="img-fill">
+                <div class="text-content">
+                  <h6>Finance all your ideas</h6>
+                  <h4>Credits for all needs</h4>
+                  <p>Our agency provides its clients with a large variety of micro financial offers that can match all the needs.</p>
+                  <button><a (click)="stateTwo()" class="filled-button">Sign up</a></button>
+                </div>
+            </div>
+          </div>
+          <!-- // Item -->
+          <!-- Item -->
+          <div class="item item-3">
+            <div class="img-fill">
+                <div class="text-content">
+                  <h6>We grow together</h6>
+                  <h4>Business Assistance<br>&amp; Financing</h4>
+                  <p>We give you the possibility to grow and reach all what you dream about with our financial solutions and we make it easy for you to meet up with people who share you the same interest and desires.</p>
+                  <button><a (click)="stateTwo()" class="filled-button">Sign up</a></button>
+                </div>
+            </div>
+          </div>
+          <!-- // Item -->
+        </div>
+    </div>
+    <!-- Banner Ends Here -->
+
+
+    <div class="services" id="services" *ngIf="state==0">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Financial <em>Services</em></h2>
+              <span>Discover our services made specially to suit your ambitions</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-item">
+              <img src="assets/images/home/Insurance_370x250.png" alt="">
+              <div class="down-content">
+                <h4>Insurance</h4>
+                <p>Fincro insuR our insurance department provides multiple life and non-life insurance services including investments.</p>
+                <button><a (click)="stateTwo()" class="filled-button">Join Fincro</a></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-item">
+              <img src="assets/images/home/single_service_03_370x250.jpg" alt="">
+              <div class="down-content">
+                <h4>Micro Credits</h4>
+                <p>Finance your ideas and start your dream with our flexible and well studied financement solutions. </p>
+                <button><a (click)="stateTwo()" class="filled-button">Join Fincro</a></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-item">
+              <img src="assets/images/home/single_service_02_370x250.jpg" alt="">
+              <div class="down-content">
+                <h4>Micro leasing</h4>
+                <p>You can now buy all what you desire and choose the payement plan and pay off scheme that you can support.</p>
+                <button><a (click)="stateTwo()" class="filled-button">Join Fincro</a></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fun-facts" *ngIf="state==0">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="left-content">
+              <span>Fincro together we grow</span>
+              <h2>Our solutions for your <em>business growth</em></h2>
+              <p>Our first goal is to help all society stratums, that's why we devote all our effort to find special, new and flexible solutions that can respond to all kind of need. With Fincro everyone deserves a chance.   
+              <br><br>Like that together we will grow, and together we will open up new horizons.</p>
+              <button><a (click)="stateTwo()" class="filled-button">Join Fincro</a></button>
+            </div>
+          </div>
+          <div class="col-md-6 align-self-center">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="count-area-content">
+                  <div class="count-digit">5</div>
+                  <div class="count-title">Experts</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="count-area-content">
+                  <div class="count-digit">123</div>
+                  <div class="count-title">Great Reviews</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="count-area-content">
+                  <div class="count-digit">25</div>
+                  <div class="count-title">Projects Done</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="count-area-content">
+                  <div class="count-digit">6</div>
+                  <div class="count-title">Awards Won</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--
+    <div class="more-info" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="more-info-content">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="left-image">
+                    <img src="assets/images/home/more-info.jpg" alt="">
+                  </div>
+                </div>
+                <div class="col-md-6 align-self-center">
+                  <div class="right-content">
+                    <span>Who we are</span>
+                    <h2>Get to know about <em>our agency</em></h2>
+                    <p></p>
+                    <a href="#" class="filled-button">Join Fincro</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  -->
+    <div class="callback-form" id="contactus" *ngIf="state==0">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Request a <em>call back</em></h2>
+              <span>Leave us your coordinates and a message, we well get back to you as soon as possible</span>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="contact-form">
+              <form id="contact" action="" method="post">
+                <div class="row">
+                  <div class="col-lg-4 col-md-12 col-sm-12">
+                    <fieldset>
+                      <input name="name" type="text" class="form-control" id="name" placeholder="Full Name" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-4 col-md-12 col-sm-12">
+                    <fieldset>
+                      <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Mail Address" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-4 col-md-12 col-sm-12">
+                    <fieldset>
+                      <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your Message" required=""></textarea>
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" class="border-button">Send Message</button>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Footer Starts Here -->
+    <footer *ngIf="state==0"> 
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 footer-item">
+            <h4>Fincro Agency</h4>
+            <p>You can find links to our social media profiles here.</p>
+            <ul class="social-icons">
+              <li><a rel="nofollow" href="https://fb.com/templatemo" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <div class="sub-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p>Copyright &copy; 2022 Fincro Agency.
+            
+            - Design: Fincro crew</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    
+    <script src="assets/js/jquery.singlePageNav.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/owl.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/accordions.js"></script> 
+
+    
+
+  </body>
+</html>

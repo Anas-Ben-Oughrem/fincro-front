@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-content>
+    <div class="row">
+
+      <div class="col-md-10">
+
+        <mat-card-title>Find Your Loans</mat-card-title>
+        <br>
+        <mat-card-subtitle>Check your activity in our Fincro Application :</mat-card-subtitle>
+
+      </div>
+
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<div class="container" >
+  <div class="row" >
+     <app-credit *ngFor="let credit of listCredits;let i = index" [credit]="credit" class="col-md-4"></app-credit>
+  </div>
+</div>

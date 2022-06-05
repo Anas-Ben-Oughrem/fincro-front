@@ -1,0 +1,140 @@
+<div fxlayout="row" fxlayoutwrap="wrap">
+  <!-- Card column -->
+  <div fxflex.gt-sm="100%" fxflex="100">
+    <mat-card>
+      <mat-card-content>
+        <mat-card-title>Apply For Loan</mat-card-title>
+        <mat-card-subtitle>Follow these steps to apply for a MicroCredit</mat-card-subtitle>
+
+        <mat-vertical-stepper [linear]="isLinearvarient" #steppervarient class="m-t-20">
+          <mat-step [stepControl]="varientfirstFormGroup">
+            <form [formGroup]="varientfirstFormGroup" #credit = "ngForm">
+              <ng-template matStepLabel="matStepLabel">Fill Credit Fields</ng-template>
+              <mat-form-field>
+                <input matInput="matInput"  [(ngModel)]="creditDetails.amountCredit" [ngModelOptions]="{standalone: true}"  type="number" placeholder="MicroCredit Amount"  required="required" >
+              </mat-form-field>
+              <mat-form-field> 
+                    <mat-label  required="required">Period Type</mat-label>
+                    <mat-select  [(ngModel)]="creditDetails.typePeriod" [ngModelOptions]="{standalone: true}" id="exampleFormControlSelect1">
+                        <mat-option value="Monthly">Monthly</mat-option>
+                        <mat-option  value="Quarterly">Quarterly</mat-option>
+                        <mat-option  value="Half-Yearly">Half-Yearly</mat-option>
+                        <mat-option  value="Yearly">Yearly</mat-option>
+                    </mat-select>
+                </mat-form-field>
+              <mat-form-field>
+                <input matInput="matInput" [(ngModel)]="creditDetails.period" [ngModelOptions]="{standalone: true}"  type="number" placeholder="Period"  required="required">
+
+              </mat-form-field>
+              <div>
+                <button mat-raised-button="mat-raised-button" matStepperNext="matStepperNext" color="accent" (click)="simulation(creditDetails.amountCredit,creditDetails.period,creditDetails.typePeriod)">Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="varientsecondFormGroup">
+            <form [formGroup]="varientsecondFormGroup">
+              <ng-template matStepLabel="matStepLabel">Simulation</ng-template>
+              <br>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card bg-gradient-default">
+                    <!-- Card body -->
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <h5 class="card-title text-uppercase text-muted mb-0 text-white">
+                            Total Amount </h5>
+                          <span class="h2 font-weight-bold mb-0 text-white">{{totalAmount}}</span>
+                        </div>
+                        <div class="col-auto">
+                          <div class="icon icon-shape bg-white text-dark rounded-circle shadow">
+                            <mat-icon>account_balance_wallet</mat-icon>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card bg-gradient-primary">
+                    <!-- Card body -->
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <h5 class="card-title text-uppercase text-muted mb-0 text-white">
+                            Periodicity</h5>
+                          <span class="h2 font-weight-bold mb-0 text-white">{{Mensuality}}</span>
+                        </div>
+                        <div class="col-auto">
+                          <div class="icon icon-shape bg-white text-dark rounded-circle shadow">
+                            <mat-icon>schedule</mat-icon>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card bg-gradient-danger">
+                    <!-- Card body -->
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <h5 class="card-title text-uppercase text-muted mb-0 text-white">
+                            Interest Rate(Annually)</h5>
+                          <span class="h2 font-weight-bold mb-0 text-white">{{interest}}</span>
+                        </div>
+                        <div class="col-auto">
+                          <div class="icon icon-shape bg-white text-dark rounded-circle shadow">
+                            <mat-icon>trending_up</mat-icon>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="button-row">
+                <button mat-raised-button="mat-raised-button" color="primary" matStepperPrevious="matStepperPrevious">Back</button>
+                <button mat-raised-button="mat-raised-button" color="accent" matStepperNext="matStepperNext">Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step>  
+            <form [formGroup]="varientfirstFormGroup">
+                <ng-template matStepLabel="matStepLabel">Finish Credit Fields</ng-template>
+
+                <mat-form-field>
+                    <mat-label  required="required">Credit Type</mat-label>
+                    <mat-select  id="CreditType" [(value)]="CreditType" [(ngModel)]="creditDetails.creditType" [ngModelOptions]="{standalone: true}">
+                        <mat-option value="MICROCREDIT">MicroCredit</mat-option>
+                        <mat-option  value="MICROLEASING">MicroLeasing</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field >
+                    <mat-label>Choose a start date</mat-label>
+                    <input matInput [matDatepicker]="picker" format='dd/MM/yyyy' [min]="minDate" required="required" [(ngModel)]="creditDetails.startDate" [ngModelOptions]="{standalone: true}"> 
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <div *ngIf="CreditType == 'MICROCREDIT'">
+                    <mat-form-field>
+                        <input matInput="matInput" type="number" placeholder="CIN Guarantor"  [(ngModel)]="creditDetails.cinGuarantor" [ngModelOptions]="{standalone: true}" >
+                    </mat-form-field>
+                    <mat-form-field>
+                        <ngx-mat-file-input [formControl]="fileControl" placeholder="Guarantor payslip" [(ngModel)]="creditDetails.guarantorFile" [ngModelOptions]="{standalone: true}"  ></ngx-mat-file-input>
+                    </mat-form-field>
+                </div>
+            </form>
+            <div class="button-row">
+              <button mat-raised-button="mat-raised-button" color="primary" matStepperPrevious="matStepperPrevious">Back</button>
+              <button mat-raised-button="mat-raised-button" color="warn" (click) = "addCredit(creditDetails)">Confirm</button>
+            </div>
+          </mat-step>
+        </mat-vertical-stepper>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
